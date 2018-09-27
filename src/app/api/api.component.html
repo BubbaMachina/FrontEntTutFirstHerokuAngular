@@ -1,0 +1,12 @@
+<p>
+  api works!
+</p>
+
+<input type="text" [(ngModel)]="name">
+{{name}}
+<button (click)="getData()">Get Github Data</button>
+
+<div *ngIf="resp">
+<p> Person's Login:  {{resp.login}} </p>
+<p>Person's Followers:  {{resp.followers}}</p>
+</div>

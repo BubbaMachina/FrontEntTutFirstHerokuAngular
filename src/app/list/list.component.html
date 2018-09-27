@@ -1,0 +1,9 @@
+<p>
+  list works!
+</p>
+
+<input type="text" [(ngModel)]="name">
+<button (click)="addPerson()">Add person</button>
+{{name}}
+<br><br>
+<li *ngFor="let item of listOfNames">{{item}}</li>
