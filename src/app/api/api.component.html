@@ -4,7 +4,7 @@
 
 <input type="text" [(ngModel)]="name">
 {{name}}
-<button (click)="getData()">Get Github Data</button>
+<button (click)="getData()" class="btn-primary">Get Github Data</button>
 
 <div *ngIf="resp">
 <p> Person's Login:  {{resp.login}} </p>
@@ -17,4 +17,42 @@
 <input type="text" [(ngModel)]="itemName">
 <input type="number" [(ngModel)]="itemQuantity">
 <br>
-<button (click)="postItem()">Post to Mlab</button>
+<button (click)="postItem()" class="btn-primary">Post to Mlab</button>
+<button (click)="getItem()" class="btn-primary"> Get list of items</button>
+
+
+<br>
+<div class="py-5" *ngIf="itemlist">
+  <div class="container">
+    <div class="row bg-dark text-light text-center">
+      <div class="col-md-12 text-center">
+        <h1 class="display-1 p-2 m-2 text-center">Shopping List Items Table</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+          <thead class="table-danger">
+            <tr>
+              <th>ID</th>
+              <th>Item Name</th>
+              <th>Quantity</th>
+              <th>Sold?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of itemlist">
+              <td>{{numb+1}}</td>
+              <td>{{item.itemName}}</td>
+              <td>{{item.itemQuantity}}</td>
+              <td>{{item.itemBought}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

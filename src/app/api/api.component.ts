@@ -13,6 +13,9 @@ export class ApiComponent implements OnInit {
   itemQuantity: number;
   itemBought: boolean = false;
   item: any;
+  numb: number = 0;
+
+  itemlist: any;
   constructor(private http: HttpClient) {
 
    }
@@ -22,8 +25,16 @@ export class ApiComponent implements OnInit {
   getData(){
     this.http.get('https://api.github.com/users/'+ this.name).subscribe((response)=>{
     this.resp = response;
-    })
+    });
   }
+
+
+  getItem(){
+    this.http.get('https://secure-everglades-87012.herokuapp.com/item').subscribe((response)=>{
+      this.itemlist = response;
+    });
+  }
+
 
   postItem(){
     this.item = {itemName: this.itemName,
@@ -32,6 +43,8 @@ export class ApiComponent implements OnInit {
     };
     this.http.post('https://secure-everglades-87012.herokuapp.com/item',this.item).subscribe((res)=>{
     console.log(res);
+    this.getItem();
     });
   }
 }
+
