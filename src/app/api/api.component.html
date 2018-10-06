@@ -10,3 +10,11 @@
 <p> Person's Login:  {{resp.login}} </p>
 <p>Person's Followers:  {{resp.followers}}</p>
 </div>
+
+<br>
+<br>
+<h3>Enter item Name, quanity</h3>
+<input type="text" [(ngModel)]="itemName">
+<input type="number" [(ngModel)]="itemQuantity">
+<br>
+<button (click)="postItem()">Post to Mlab</button>

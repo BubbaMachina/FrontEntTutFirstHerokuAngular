@@ -9,6 +9,10 @@ import { HttpClient } from '@angular/common/http';
 export class ApiComponent implements OnInit {
   name: string;
   resp: any;
+  itemName: string;
+  itemQuantity: number;
+  itemBought: boolean = false;
+  item: any;
   constructor(private http: HttpClient) {
 
    }
@@ -19,5 +23,15 @@ export class ApiComponent implements OnInit {
     this.http.get('https://api.github.com/users/'+ this.name).subscribe((response)=>{
     this.resp = response;
     })
+  }
+
+  postItem(){
+    this.item = {itemName: this.itemName,
+    itemQuantity: this.itemQuantity,
+    itemBought: this.itemBought
+    };
+    this.http.post('https://secure-everglades-87012.herokuapp.com/item',this.item).subscribe((res)=>{
+    console.log(res);
+    });
   }
 }
